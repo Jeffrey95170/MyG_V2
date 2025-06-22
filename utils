@@ -1,0 +1,9 @@
+export async function getGPTResponse(messages) {
+  const response = await fetch("/api/gpt", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages }),
+  });
+  const data = await response.json();
+  return data.reply;
+}
